@@ -1,0 +1,25 @@
+﻿@model List<BookRadar.Models.LibroItem>
+
+<h2>Resultados</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Año de publicación</th>
+            <th>Editorial</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var libro in Model)
+        {
+            <tr>
+                <td>@libro.Title</td>
+                <td>@libro.First_Publish_Year</td>
+                <td>@(libro.Publisher ?? "Desconocida")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Libros/Historial" class="btn btn-secondary">Ver historial</a>
