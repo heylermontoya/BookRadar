@@ -4,26 +4,29 @@ Este proyecto es el resultado de la prueba técnica solicitada, cuyo objetivo es
 
 Aplicación MVC que permite buscar libros por autor usando la API pública de OpenLibrary, mostrar los resultados y guardar el historial de búsquedas en SQL Server. El objetivo es demostrar dominio de ASP.NET Core MVC, consumo de APIs, Entity Framework Core, vistas Razor, validación y buenas prácticas básicas.
 
-- Características principales
+---
 
-Búsqueda por autor contra openlibrary.org.
+## Características principales
 
-Vista de resultados con Título, Año de publicación y Editorial.
+- Búsqueda por autor contra openlibrary.org.
 
-Historial persistido en SQL Server mediante EF Core.
+- Vista de resultados con Título, Año de publicación y Editorial.
 
-Regla de negocio: evitar guardar búsquedas repetidas en 1 minuto.
+- Historial persistido en SQL Server mediante EF Core.
 
+- Regla de negocio: evitar guardar búsquedas repetidas en 1 minuto.
 
-- Datos técnicos de la integración (OpenLibrary)
+---
 
-Endpoint consultado: https://openlibrary.org/search.json?author={AUTOR}
+## Datos técnicos de la integración (OpenLibrary)
 
-Se mapea un subconjunto de campos en LibroApiResult → LibroItem.
+- Endpoint consultado: https://openlibrary.org/search.json?author={AUTOR}
 
-Se limitan los resultados mostrados (p. ej. Take(100)).
+- Se mapea un subconjunto de campos en LibroApiResult → LibroItem.
 
-Se guarda en HistorialBusquedas con la regla anti-duplicado por (autor, título, ventana 1 min).
+- Se limitan los resultados mostrados (p. ej. Take(100)).
+
+- Se guarda en HistorialBusquedas con la regla anti-duplicado por (autor, título, ventana 1 min).
 
 ---
 
@@ -46,7 +49,7 @@ Antes de iniciar, asegúrate de tener instalado:
 ```bash
 git clone https://github.com/heylermontoya/BookRadar.git
 cd book-radar
-
+ ```
 ---
 
 ### 3 Base de datos
